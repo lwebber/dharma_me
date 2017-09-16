@@ -1,9 +1,11 @@
 class Teacher
   attr_writer :name
-  @@talks = []
-  @@meditations = []
+  attr_accessor :talks, :meditations
 
   def initialize(name)
     @name = name
+    talks = []
+    meditations = []
   end
+
 end
