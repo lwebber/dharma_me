@@ -1,5 +1,5 @@
 require "dharma_me/version"
 
-module DharmaMe
+class DharmaMe
   # Your code goes here...
 end
