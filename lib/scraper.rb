@@ -49,7 +49,7 @@ class Scraper
     first_stream_link = "http://marc.ucla.edu/#{first_stream_xml.at("a")["href"]}"
 
     meditation = Meditation.new(first_title, first_stream_link)
-    binding.pry
+    #binding.pry
   end
 
 end
