@@ -1,3 +1,5 @@
+require './config/environment.rb'
+
 class Teacher
   attr_writer :name
   attr_accessor :talks, :meditations
