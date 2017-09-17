@@ -39,10 +39,16 @@ class Scraper
   end
 
   def self.scrape_meditations(index_url)
+    meditations = []
     doc = Nokogiri::HTML(open(index_url))
     rows = doc.css("tr")
-    meditations = rows[1..8]
-    
+    recordings = rows[1..8]
+
+    first_title = recordings[1].css("td:nth-child(1)").text
+    first_stream_xml = recordings[1].css("td:nth-child(2)")
+    first_stream_link = "http://marc.ucla.edu/#{first_stream_xml.at("a")["href"]}"
+
+    meditation = Meditation.new(first_title, first_stream_link)
     binding.pry
   end
 
