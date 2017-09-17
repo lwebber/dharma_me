@@ -33,7 +33,7 @@ class Scraper
   def self.scrape_talks(index_url)
     #return an array of talks (as hashes) from audiodharma
     #will hold the array of talk hashes
-    doc = Nokogiri::HTML(open(index_url)) #get the page
+    doc = Nokogiri::XML(RestClient.get(index_url))
     talks = doc.css(".regularitem")
     binding.pry
   end
@@ -54,5 +54,6 @@ class Scraper
 
 end
 
-#Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
-Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
+Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
+#Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
+#binding.pry

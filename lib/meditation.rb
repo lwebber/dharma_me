@@ -38,4 +38,4 @@ m2 = Meditation.new("Breath, Sound, Body Meditation (12 mins)", "http://marc.ucl
 
 Meditation.list
 
-binding.pry
+#binding.pry
