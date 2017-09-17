@@ -38,10 +38,15 @@ class Scraper
     binding.pry
   end
 
-  def self.scrape_meditations
-
+  def self.scrape_meditations(index_url)
+    doc = Nokogiri::HTML(open(index_url))
+    rows = doc.css("tr")
+    meditations = rows[1..8]
+    
+    binding.pry
   end
 
 end
 
-Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
+#Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
+Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
