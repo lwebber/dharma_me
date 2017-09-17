@@ -33,10 +33,17 @@ class Scraper
   def self.scrape_talks(index_url)
     #return an array of talks (as hashes) from audiodharma
     #will hold the array of talk hashes
-    doc = Nokogiri::XML(RestClient.get(index_url))
-    talks = doc.css(".regularitem")
+    # doc = Nokogiri::XML(RestClient.get(index_url))
+    # talks = doc.css(".regularitem")
+    open(index_url) do |rss|
+      feed = RSS::Parser.parse(rss)
+      puts "Title: #{feed.channel.title}"
+      feed.items.each do |item|
+        puts "Item: #{item.title}"
+      end
     binding.pry
   end
+end
 
   def self.scrape_meditations(index_url)
     meditations = []
