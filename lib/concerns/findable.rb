@@ -1,11 +1,23 @@
 module Findable
 
-  attr_accessor :title, :teacher, :date, :duration
-
-  def initialize(title, teacher, date, duration)
-    @title = title
-    @teacher = teacher
-    @date = date
-    @duration = duration
+  module InstanceMethods
+    def initialize
+      @@all << self
+    end
   end
+
+  module ClassMethods
+    def self.find_by_title(title)
+      self.all detect {|r| r.title}
+    end
+
+    def self.find_by_teacher(teacher)
+
+    end
+
+    def self.all
+      @@all
+    end
+  end
+
 end
