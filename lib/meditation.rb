@@ -9,10 +9,7 @@ class Meditation
   end
 
   def play
-    puts "Click the link to play"
-    puts @stream
+    puts "Click the link to play: #{@stream}"
   end
 
 end
-
-meditation = Meditation.new("sample", "http://marc.ucla.edu/mpeg/01_Breathing_Meditation.mp3")

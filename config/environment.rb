@@ -1,6 +1,7 @@
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
+require 'launchy'
 
 require_relative '../lib/meditation.rb'
 require_relative '../lib/talk.rb'
