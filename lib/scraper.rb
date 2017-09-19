@@ -54,11 +54,12 @@ end
     recordings.each do |r|
       stream_xml = r.css("td:nth-child(2)")
       meditation = {
-        title: rcss("td:nth-child(1)").text,
-        stream: "http://marc.ucla.edu/#{first_stream_xml.at("a")["href"]}"
+        title: r.css("td:nth-child(1)").text,
+        stream: "http://marc.ucla.edu/#{stream_xml.at("a")["href"]}"
       }
       meditations << meditation #return array of meditation hashes
     end
+    meditations
   end
 end
 
