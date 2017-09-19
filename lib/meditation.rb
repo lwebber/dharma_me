@@ -6,19 +6,19 @@ class Meditation
 
 #instance methods
 
-  def initialize(title, stream)
-    @title = title
-    @stream = stream
+  def initialize(meditation_hash)
+    meditation_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
-  
+
   def play
     puts "Click the link to play: #{@stream}"
   end
 
   #class methods
-  def self.create_from_collection(meditation_array)
-
+  def self.create_from_collection(meditation_array) #array of meditation hashes
+    meditation_array.each do |student_hash|
+      Meditation.new(meditation_hash)
   end
 
   def self.all
