@@ -15,8 +15,8 @@ class Meditation
     puts "Click the link to play: #{@stream}"
   end
 
-  def find_by_input(input)
-    @@all[input - 1]
+  def self.find_by_input(input)
+    @@all[input.to_i - 1]
   end
 
   #class methods
@@ -39,4 +39,3 @@ class Meditation
   end
 
 end
-

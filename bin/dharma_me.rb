@@ -18,14 +18,12 @@ input = gets.strip
     puts "Here are your choices today: "
     Meditation.create_from_collection(Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
     Meditation.list
+    puts "Which one would you like to hear?"
+    input = gets.strip
+    Meditation.find_by_input(input).play
   elsif input.to_i == 3   
     Breathe.start
   else
     puts "Not sure what you want?"
   end
 end
-
-
-
-
-#Meditation.create_from_collection(Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
