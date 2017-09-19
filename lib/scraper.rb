@@ -51,16 +51,17 @@ end
     rows = doc.css("tr")
     recordings = rows[1..8]
 
-    first_title = recordings[1].css("td:nth-child(1)").text
-    first_stream_xml = recordings[1].css("td:nth-child(2)")
-    first_stream_link = "http://marc.ucla.edu/#{first_stream_xml.at("a")["href"]}"
-
-    meditation = Meditation.new(first_title, first_stream_link)
-    #binding.pry
+    recordings.each do |r|
+      stream_xml = r.css("td:nth-child(2)")
+      meditation = {
+        title: rcss("td:nth-child(1)").text,
+        stream: "http://marc.ucla.edu/#{first_stream_xml.at("a")["href"]}"
+      }
+      meditations << meditation #return array of meditation hashes
+    end
   end
-
 end
 
 #Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
-#Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
-#binding.pry
+# Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
+# binding.pry

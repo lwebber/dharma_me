@@ -4,8 +4,6 @@ require './config/environment.rb'
 class Talk
   attr_accessor :title, :teacher, :date, :duration, :stream
 
-  # extend Findable::ClassMethods
-  # include Findable::InstanceMethods
   @@all = []
 
   def initialize(title, teacher, date, duration, stream)
@@ -17,9 +15,16 @@ class Talk
     @@all << self
   end
 
-  def self.list
+  def self.all
     @@all
   end
+  
+  def self.list
+    self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title}"}
+  end
 
+  def self.reset!
+    @@all.clear
+  end
 
 end

@@ -4,18 +4,21 @@ class Meditation
   attr_accessor :title, :stream
   @@all = []
 
+#instance methods
+
   def initialize(title, stream)
     @title = title
     @stream = stream
     @@all << self
   end
-
-  def self.create_from_collection(meditation_array)
-
-  end
-
+  
   def play
     puts "Click the link to play: #{@stream}"
+  end
+
+  #class methods
+  def self.create_from_collection(meditation_array)
+
   end
 
   def self.all
