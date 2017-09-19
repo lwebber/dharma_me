@@ -61,6 +61,6 @@ end
 
 end
 
-Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
+#Scraper.scrape_talks("https://feeds.feedburner.com/audiodharma")
 #Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
 #binding.pry

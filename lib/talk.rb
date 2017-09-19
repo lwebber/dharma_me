@@ -6,13 +6,19 @@ class Talk
 
   # extend Findable::ClassMethods
   # include Findable::InstanceMethods
+  @@all = []
 
-  def initalize(title, teacher, date, duration, stream)
+  def initialize(title, teacher, date, duration, stream)
     @title = title
     @teacher = teacher
     @date = date
     @duration = duration
     @stream = stream
+    @@all << self
+  end
+
+  def self.list
+    @@all
   end
 
 
