@@ -15,10 +15,15 @@ class Meditation
     puts "Click the link to play: #{@stream}"
   end
 
+  def find_by_input(input)
+    @@all[input - 1]
+  end
+
   #class methods
   def self.create_from_collection(meditation_array) #array of meditation hashes
-    meditation_array.each do |student_hash|
+    meditation_array.each do |meditation_hash|
       Meditation.new(meditation_hash)
+    end
   end
 
   def self.all
@@ -35,10 +40,3 @@ class Meditation
 
 end
 
-# m1 = Meditation.new("Breathing Meditation (5 mins)", "http://marc.ucla.edu/mpeg/01_Breathing_Meditation.mp3")
-#
-# m2 = Meditation.new("Breath, Sound, Body Meditation (12 mins)", "http://marc.ucla.edu/mpeg/02_Breath_Sound_Body_Meditation.mp3")
-#
-# Meditation.list
-
-#binding.pry
