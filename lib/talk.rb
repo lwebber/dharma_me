@@ -6,6 +6,7 @@ class Talk
 
   @@all = []
 
+#instance methods
   def initialize(title, teacher, date, duration, stream)
     @title = title
     @teacher = teacher
@@ -15,10 +16,15 @@ class Talk
     @@all << self
   end
 
+  def play
+    puts "Click the link to play: #{@stream}"
+  end
+
+#class methods
   def self.all
     @@all
   end
-  
+
   def self.list
     self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title}"}
   end

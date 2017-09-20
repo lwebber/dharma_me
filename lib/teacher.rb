@@ -1,21 +1,15 @@
 require './config/environment.rb'
 
 class Teacher
-  attr_writer :name
-  attr_accessor :talks, :meditations
+  attr_accessor :name, :recordings
 
   def initialize(name)
     @name = name
-    @talks = []
-    @meditations = []
+    @recordings = []
   end
 
-  def add_talk(talk)
-    @talks << talk
-  end
-
-  def add_meditation(meditation)
-    @meditations << meditation
+  def add_recording(recording)
+    @recordings << recording
   end
 
 end
