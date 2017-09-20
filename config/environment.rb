@@ -2,6 +2,7 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 require 'rainbow'
+require 'rss'
 
 require_relative '../lib/meditation.rb'
 require_relative '../lib/talk.rb'

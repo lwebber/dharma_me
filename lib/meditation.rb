@@ -1,13 +1,13 @@
 require './config/environment.rb'
 
 class Meditation
-  attr_accessor :title, :stream
+  attr_accessor :title, :teacher, :stream
   @@all = []
 
 #instance methods
 
-  def initialize(meditation_hash)
-    meditation_hash.each {|key, value| self.send(("#{key}="), value)}
+  def initialize(attributes_hash)
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
 

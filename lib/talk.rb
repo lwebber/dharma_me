@@ -2,17 +2,13 @@ require './config/environment.rb'
 
 
 class Talk
-  attr_accessor :title, :teacher, :date, :duration, :stream
+  attr_accessor :title, :teacher, :date, :stream
 
   @@all = []
 
 #instance methods
-  def initialize(title, teacher, date, duration, stream)
-    @title = title
-    @teacher = teacher
-    @date = date
-    @duration = duration
-    @stream = stream
+  def initialize(attributes_hash)
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
 
