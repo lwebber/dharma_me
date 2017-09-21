@@ -13,3 +13,7 @@
 12. look up how to use nokogiri with RSS feeds (or other RSS reader)
 13. refactor play to use the system open method
 14. Talks have teachers and teachers have many talks (or even meditations)
+15. Revise variable names to be super specific "artist_data" for the set of artist data rather than just artist, for instance
+16. Do I have "find" and "save" methods?
+17. Figure out file structure
+18. Use a module? Or just inheritance? a lot of repeated code between Talk and Meditation

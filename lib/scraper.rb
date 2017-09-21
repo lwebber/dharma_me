@@ -1,46 +1,46 @@
 require './config/environment.rb'
 
 
-class Scraper
+class Scraper #should it be class methods or instance methods?
 
-  def self.scrape_talks
-    rss = RSS::Parser.parse(index_url, false)
-    talks = []
-    rss.items.each do |item|
-      talk = {
-        title: item.title,
-        teacher: item.author,
-        date: item.pubdate,
-        stream: item.url
+  def self.scrape_talks(index_url)
+    doc = Nokogiri::HTML(open(index_url))
+    talks = doc.css(".event-item")
+
+    talks.collect do |talk|
+      talk_attributes = {
+        date: talk.css(".publish-date").text,
+        title: talk.css("h3").text,
+        url: talk.at("a")["href"]
       }
-      talks << talk
     end
-    talks
   end
 
-  def self.scrape_teacher(index_url)
+  def self.scrape_talk(index_url) #create another attributes hash to send to the Talk
+    doc = Nokogiri::HTML(open(index_url))
+    talk = {
 
+    }
+    teacher = doc.css("#dnn_ctr466_ViewTalkDetails_hlTeacher").text
+    description = doc.css(".text-holder").text.gsub("\r", "").gsub("\n", "").gsub("\t","")
   end
 
-  def self.scrape_meditations(index_url)
-    meditations = []
+  def self.scrape_meditations(index_url) #sandwich code? change to collect?
     doc = Nokogiri::HTML(open(index_url))
     rows = doc.css("tr")
-    recordings = rows[1..8]
+    meditations = [1..8]doc.css("tr")
 
-    recordings.each do |r|
-      stream_xml = r.css("td:nth-child(2)")
+    meditations.collect do |meditation|
+      stream_xml = meditation.css("td:nth-child(2)")
       meditation = {
-        title: r.css("td:nth-child(1)").text,
-        #teacher: ,
-        stream: "http://marc.ucla.edu/#{stream_xml.at("a")["href"]}"
+        title: meditation.css("td:nth-child(1)").text,
+        url: "http://marc.ucla.edu/#{stream_xml.at("a")["href"]}"
       }
-      meditations << meditation #return array of meditation attributes hashes
     end
-    meditations
   end
 end
 
-#Scraper.scrape_talks("http://dharmaseed.org/feeds/recordings/?max-entries=15")
+# Scraper.scrape_talks("http://imcw.org/Talks")
 # Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
+# Scraper.scrape_talk("http://imcw.org/Talks/TalkDetail/TalkID/1136")
 # binding.pry

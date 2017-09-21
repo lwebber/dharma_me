@@ -2,7 +2,7 @@ require './config/environment.rb'
 
 
 class Talk
-  attr_accessor :title, :teacher, :date, :stream
+  attr_accessor :date, :title, :url, :teacher, :description
 
   @@all = []
 
@@ -10,6 +10,10 @@ class Talk
   def initialize(attributes_hash)
     attributes_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
+  end
+
+  def add_attributes(attributes_hash)
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
   end
 
   def play
@@ -28,5 +32,7 @@ class Talk
   def self.reset!
     @@all.clear
   end
+
+  #needs find method
 
 end

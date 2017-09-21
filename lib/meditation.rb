@@ -1,7 +1,7 @@
 require './config/environment.rb'
 
 class Meditation
-  attr_accessor :title, :teacher, :stream
+  attr_accessor :title, :teacher, :stream_url
   @@all = []
 
 #instance methods
@@ -15,7 +15,7 @@ class Meditation
     puts "Click the link to play: #{@stream}"
   end
 
-  def self.find_by_input(input)
+  def self.find(input)
     @@all[input.to_i - 1]
   end
 
