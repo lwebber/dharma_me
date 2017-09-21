@@ -20,8 +20,8 @@ class Meditation
   end
 
   #class methods
-  def self.create_from_collection(meditation_array) #array of meditation hashes
-    meditation_array.each do |meditation_hash|
+  def self.create_from_collection(meditation_attributes) #array of meditation hashes
+    meditation_array.each do |meditation_attributes|
       Meditation.new(meditation_hash)
     end
   end

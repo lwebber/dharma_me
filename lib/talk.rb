@@ -7,13 +7,13 @@ class Talk
   @@all = []
 
 #instance methods
-  def initialize(attributes_hash)
-    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+  def initialize(talk_attributes)
+    talk_attributes.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
 
-  def add_attributes(attributes_hash)
-    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+  def add_attributes(talk_attributes)
+    talk_attributes.each {|key, value| self.send(("#{key}="), value)}
   end
 
   def play
@@ -21,6 +21,16 @@ class Talk
   end
 
 #class methods
+def self.create_from_collection(talk_attributes) #array of meditation hashes
+  talk_attributes.each do |talk_attributes|
+    Meditation.new(talk_attributes)
+  end
+end
+
+def self.add_attributes_from_url(url)
+  
+end
+
   def self.all
     @@all
   end
