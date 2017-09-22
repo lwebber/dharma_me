@@ -27,14 +27,20 @@ class Talk
       Talk.new(attributes)
     end
   end
-#how to add the attributes from the details pages?
+
+  def self.add_attributes_to_talks
+    Talk.all.each do |talk|
+      attributes = Scraper.scrape_talk_details(talk.url)
+      talk.add_attributes(attributes)
+    end
+  end
 
   def self.all
     @@all
   end
 
   def self.list
-    self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title}"}
+    self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title} by #{t.teacher}"}
   end
 
   def self.reset!

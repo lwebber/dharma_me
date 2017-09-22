@@ -14,7 +14,7 @@ require './config/environment.rb'
       puts "Here are your choices today: "
       Talk.reset!
       Talk.create_from_collection(Scraper.scrape_talks("http://imcw.org/Talks"))
-      #add_attributes?
+      Talk.add_attributes_to_talks
       Talk.list
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
       input = gets.strip
