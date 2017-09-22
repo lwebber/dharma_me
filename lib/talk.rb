@@ -18,13 +18,18 @@ class Talk
   end
 
   def show_details
-    puts @date
     puts ""
-    puts @description
+    puts "Date: #{@date}"
+    puts ""
+    puts "Description #{@description}"
+    puts ""
   end
 
   def play
-    puts "Click the link to play: #{@url}"
+    print Rainbow("Click the link to play: #{@url}").red
+    puts ""
+    puts ""
+    puts ""
   end
 
   #class methods
