@@ -12,8 +12,10 @@ class Meditation
   end
 
   def play
-    #{}`open #{@url}`
-    puts "Click the link to play: #{@url}"
+    print Rainbow("Click the link to play: #{@url}").red
+    puts ""
+    puts ""
+    puts ""
   end
 
   def self.find(input)

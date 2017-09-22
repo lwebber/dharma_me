@@ -1,10 +1,10 @@
 require './config/environment.rb'
 
-  input = nil
-  while input != "q"
-
     puts "\nWelcome to DharmaMe!"
     puts "You must be stressed out. Why don't you take a break?"
+
+    input = nil
+    while input != "q"
 
     puts "\nWould you like to (1) Listen to a dharma talk? (2) a Guided Meditation? (3) Just Breathe? Or type q to quit:"
 
