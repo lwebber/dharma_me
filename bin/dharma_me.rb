@@ -21,11 +21,9 @@ require './config/environment.rb'
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
       input = gets.strip
       if input != "q"
-        Meditation.find_by_input(input).play
-      end    
+        Meditation.find(input).play
+      end
     elsif input.to_i == 3
       Breathe.start
     end
   end
-
-

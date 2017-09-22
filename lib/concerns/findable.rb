@@ -1,4 +1,4 @@
-module Findable
+module Findable #but the common methods aren't just the finding methods. 
 
   module InstanceMethods
     def initialize

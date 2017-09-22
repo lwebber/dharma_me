@@ -16,19 +16,19 @@ class Scraper #should it be class methods or instance methods?
     end
   end
 
-  def self.scrape_talk(index_url) #create another attributes hash to send to the Talk
+  def self.scrape_talk_details(index_url) #create another attributes hash to send to the Talk
     doc = Nokogiri::HTML(open(index_url))
-    talk = {
-
+    talk_attributes = {
+      teacher: doc.css("#dnn_ctr466_ViewTalkDetails_hlTeacher").text,
+      description: doc.css(".text-holder").text.gsub("\r", "").gsub("\n", "").gsub("\t","")
     }
-    teacher = doc.css("#dnn_ctr466_ViewTalkDetails_hlTeacher").text
-    description = doc.css(".text-holder").text.gsub("\r", "").gsub("\n", "").gsub("\t","")
+    #returns one hash
   end
 
-  def self.scrape_meditations(index_url) #sandwich code? change to collect?
+  def self.scrape_meditations(index_url)
     doc = Nokogiri::HTML(open(index_url))
     rows = doc.css("tr")
-    meditations = [1..8]doc.css("tr")
+    meditations = rows[1..8]
 
     meditations.collect do |meditation|
       stream_xml = meditation.css("td:nth-child(2)")

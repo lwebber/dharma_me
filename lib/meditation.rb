@@ -1,7 +1,7 @@
 require './config/environment.rb'
 
 class Meditation
-  attr_accessor :title, :teacher, :stream_url
+  attr_accessor :title, :teacher, :url
   @@all = []
 
 #instance methods
@@ -12,7 +12,7 @@ class Meditation
   end
 
   def play
-    puts "Click the link to play: #{@stream}"
+    puts "Click the link to play: #{@url}"
   end
 
   def self.find(input)
@@ -21,8 +21,8 @@ class Meditation
 
   #class methods
   def self.create_from_collection(meditation_attributes) #array of meditation hashes
-    meditation_array.each do |meditation_attributes|
-      Meditation.new(meditation_hash)
+    meditation_attributes.each do |attributes|
+      Meditation.new(attributes)
     end
   end
 
