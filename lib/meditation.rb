@@ -1,7 +1,7 @@
 require './config/environment.rb'
 
 class Meditation
-  attr_accessor :title, :teacher, :url
+  attr_accessor :title, :teacher, :url, :date
   @@all = []
 
 #instance methods
@@ -12,6 +12,7 @@ class Meditation
   end
 
   def play
+    #{}`open #{@url}`
     puts "Click the link to play: #{@url}"
   end
 
