@@ -17,6 +17,12 @@ class Talk
     talk_attributes.each {|key, value| self.send(("#{key}="), value)}
   end
 
+  def show_details
+    puts @date
+    puts ""
+    puts @description
+  end
+
   def play
     puts "Click the link to play: #{@url}"
   end
