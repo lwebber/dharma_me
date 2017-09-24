@@ -1,3 +1,4 @@
+
 class DharmaMe::Meditation
 
   attr_accessor :title, :teacher, :url, :date

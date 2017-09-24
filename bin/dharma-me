@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/dharma_me'
+require_relative "../lib/dharma_me"
 
 DharmaMe::CLI.new.call

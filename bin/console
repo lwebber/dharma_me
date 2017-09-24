@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "dharma_me"
+require_relative "../lib/dharma_me.rb"
 
 require "irb"
 IRB.start
