@@ -2,12 +2,10 @@ require './config/environment.rb'
 
     puts "\nWelcome to DharmaMe!"
     puts "You must be stressed out. Why don't you take a break?"
+    puts "\nWould you like to (1) Listen to a dharma talk? (2) a Guided Meditation? (3) Just Breathe? Or type q to quit:"
 
     input = nil
     while input != "q"
-
-    puts "\nWould you like to (1) Listen to a dharma talk? (2) a Guided Meditation? (3) Just Breathe? Or type q to quit:"
-
     input = gets.strip
 
     if input.to_i == 1
@@ -30,7 +28,7 @@ require './config/environment.rb'
       Meditation.list
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
       input = gets.strip
-      if input != "q"
+      if input != "q" || input != "m"
         Meditation.find(input).play
       end
     elsif input.to_i == 3
