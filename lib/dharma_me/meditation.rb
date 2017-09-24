@@ -1,5 +1,5 @@
-
 class DharmaMe::Meditation
+
   attr_accessor :title, :teacher, :url, :date
   @@all = []
 
@@ -24,7 +24,7 @@ class DharmaMe::Meditation
   #class methods
   def self.create_from_collection(meditation_attributes) #array of meditation hashes
     meditation_attributes.each do |attributes|
-      Meditation.new(attributes)
+      DharmaMe::Meditation.new(attributes)
     end
   end
 

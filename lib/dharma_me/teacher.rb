@@ -1,4 +1,5 @@
 class DharmaMe::Teacher
+  
   attr_accessor :name, :recordings
 
   def initialize(name)

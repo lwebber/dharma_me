@@ -1,4 +1,3 @@
-
 class DharmaMe::Scraper #should it be class methods or instance methods?
 
   def self.scrape_talks(index_url)
