@@ -1,6 +1,4 @@
-require './config/environment.rb'
-
-class Teacher
+class DharmaMe::Teacher
   attr_accessor :name, :recordings
 
   def initialize(name)

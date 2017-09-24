@@ -1,9 +1,6 @@
-require './config/environment.rb'
-
-
-class Talk
+class DharmaMe::Talk
+  
   attr_accessor :date, :title, :url, :teacher, :description
-
 
   @@all = []
 

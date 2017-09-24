@@ -3,10 +3,12 @@ require 'nokogiri'
 require 'open-uri'
 require 'rainbow'
 
-require_relative '../lib/meditation.rb'
-require_relative '../lib/talk.rb'
-require_relative '../lib/teacher.rb'
-require_relative '../lib/concerns/findable.rb'
-require_relative '../lib/scraper.rb'
-require_relative '../lib/breathe.rb'
-require_relative '../bin/dharma_me'
+require_relative 'dharma_me/meditation.rb'
+require_relative 'dharma_me/talk.rb'
+require_relative 'dharma_me/teacher.rb'
+require_relative 'dharma_me/scraper.rb'
+require_relative 'dharma_me/breathe.rb'
+require_relative 'concerns/findable.rb'
+
+module DharmaMe
+end

@@ -1,7 +1,5 @@
-require './config/environment.rb'
 
-
-class Scraper #should it be class methods or instance methods?
+class DharmaMe::Scraper #should it be class methods or instance methods?
 
   def self.scrape_talks(index_url)
     doc = Nokogiri::HTML(open(index_url))

@@ -1,6 +1,5 @@
-require './config/environment.rb'
 
-class Meditation
+class DharmaMe::Meditation
   attr_accessor :title, :teacher, :url, :date
   @@all = []
 
