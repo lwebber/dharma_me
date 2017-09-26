@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/dharma_me"
-#require "dharma_me"
+require_relative "../config/environment.rb"
 
-DharmaMe::CLI.new.call
+CLI.new.call
