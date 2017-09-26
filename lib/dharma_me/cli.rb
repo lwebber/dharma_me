@@ -1,4 +1,4 @@
-class DharmaMe::CLI
+class CLI
 
   def call
     greet
@@ -20,29 +20,29 @@ class DharmaMe::CLI
 
     if input.to_i == 1
       puts "Here are your choices today: "
-      DharmaMe::Talk.reset!
-      DharmaMe::Talk.create_from_collection(DharmaMe::Scraper.scrape_talks("http://imcw.org/Talks"))
-      DharmaMe::Talk.add_attributes_to_talks
-      DharmaMe::Talk.list
+      Talk.reset!
+      Talk.create_from_collection(Scraper.scrape_talks("http://imcw.org/Talks"))
+      Talk.add_attributes_to_talks
+      Talk.list
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
       input = gets.strip
       if input != "q" || input != "m"
-        talk = DharmaMe::Talk.find(input)
+        talk = Talk.find(input)
         talk.show_details
         talk.play
       end
     elsif input.to_i == 2
       puts "Here are your choices today: "
-      DharmaMe::Meditation.reset!
-      DharmaMe::Meditation.create_from_collection(DharmaMe::Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
-      DharmaMe::Meditation.list
+      Meditation.reset!
+      Meditation.create_from_collection(Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
+      Meditation.list
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
       input = gets.strip
       if input != "q" || input != "m"
-        DharmaMe::Meditation.find(input).play
+        Meditation.find(input).play
       end
     elsif input.to_i == 3
-      DharmaMe::Breathe.start
+      Breathe.start
     end
   end
 

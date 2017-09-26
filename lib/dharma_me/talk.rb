@@ -1,4 +1,4 @@
-class DharmaMe::Talk
+class Talk
 
   attr_accessor :date, :title, :url, :teacher, :description
 
@@ -32,13 +32,13 @@ class DharmaMe::Talk
   #class methods
   def self.create_from_collection(talk_attributes) #array of meditation hashes
     talk_attributes.each do |attributes|
-      DharmaMe::Talk.new(attributes)
+      Talk.new(attributes)
     end
   end
 
   def self.add_attributes_to_talks
-    DharmaMe::Talk.all.each do |talk|
-      attributes = DharmaMe::Scraper.scrape_talk_details(talk.url)
+    Talk.all.each do |talk|
+      attributes = Scraper.scrape_talk_details(talk.url)
       talk.add_attributes(attributes)
     end
   end

@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require_relative "../lib/dharma_me.rb"
+require_relative "../config/environment.rb"
+#require "dharma_me" #this is how it's done in now-playing
 
 require "irb"
 IRB.start

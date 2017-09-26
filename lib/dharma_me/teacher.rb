@@ -1,4 +1,4 @@
-class DharmaMe::Teacher
+class Teacher
   
   attr_accessor :name, :recordings
 

@@ -9,6 +9,3 @@ require_relative "dharma_me/teacher.rb"
 require_relative "dharma_me/scraper.rb"
 require_relative "dharma_me/breathe.rb"
 #require_relative 'concerns/findable.rb'
-
-module DharmaMe
-end

@@ -1,4 +1,4 @@
-class Breathe::DharmaMe
+class DharmaMe
 
   def self.start
     breathe = ["B", "R", "E", "A", "T", "H", "E"]
