@@ -1,12 +1,12 @@
 class CLI
 
-  def call
+  def call #main method to run the program
     greet
     menu
     goodbye
   end
 
-  def greet
+  def greet #welcome user
     puts "\nWelcome to DharmaMe!"
     puts "You must be stressed out. Why don't you take a break?"
   end
@@ -20,8 +20,11 @@ class CLI
 
     if input.to_i == 1
       puts "Here are your choices today: "
+      #reset all to get and store a fresh scrape.
       Talk.reset!
+      #get talks from main page
       Talk.create_from_collection(Scraper.scrape_talks("http://imcw.org/Talks"))
+      #add more details from details page. Should I only do this to talk user selects? Would save time.
       Talk.add_attributes_to_talks
       Talk.list
 
@@ -35,6 +38,7 @@ class CLI
           goodbye
         else
           talk = Talk.find(choice)
+          #could potentially scrape and add the details here.
           talk.show_details
           talk.play
           menu
@@ -42,6 +46,7 @@ class CLI
 
     elsif input.to_i == 2
       puts "Here are your choices today: "
+      #reset all to get and store a fresh scrape
       Meditation.reset!
       Meditation.create_from_collection(Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
       Meditation.list
@@ -60,6 +65,7 @@ class CLI
         end
 
     elsif input.to_i == 3
+      #could make this more flexible and abstract by asking user to input amount of time
       Breathe.start
       menu
     end
