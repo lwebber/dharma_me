@@ -14,8 +14,6 @@ class Meditation
   def play
     print Rainbow("Click the link to play: #{@url}").red
     puts ""
-    puts ""
-    puts ""
   end
 
   def self.find(input)

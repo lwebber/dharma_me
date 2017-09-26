@@ -24,37 +24,41 @@ class CLI
       Talk.create_from_collection(Scraper.scrape_talks("http://imcw.org/Talks"))
       Talk.add_attributes_to_talks
       Talk.list
-      
+
       input = nil
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
-      input = gets.strip
-        if input != "q" || input != "m"
-          talk = Talk.find(input)
+      choice = gets.strip
+
+        if choice == "m"
+          menu
+        elsif choice == "q"
+          goodbye
+        else
+          talk = Talk.find(choice)
           talk.show_details
           talk.play
-        elsif input = "m"
           menu
-        elsif input = "q"
-          goodbye
         end
-        
+
     elsif input.to_i == 2
       puts "Here are your choices today: "
       Meditation.reset!
       Meditation.create_from_collection(Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations"))
       Meditation.list
-      
-      input = nil
+
+      choice = nil
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
-      input = gets.strip
-      if input != "q" || input != "m"
-        Meditation.find(input).play
-      elsif input = "m"
-        menu
-      elsif input = "q"
-        goodbye
-      end
-      
+      choice = gets.strip
+        if choice == "m"
+          menu
+        elsif choice == "q"
+          goodbye
+        else
+          Meditation.find(choice).play
+          puts "Here's the menu again if you'd like to start over:"
+          menu
+        end
+
     elsif input.to_i == 3
       Breathe.start
       menu
@@ -63,6 +67,7 @@ class CLI
 
   def goodbye
     puts "Come back tomorrow for updated talks and meditations."
+    puts ""
   end
 end
 end
