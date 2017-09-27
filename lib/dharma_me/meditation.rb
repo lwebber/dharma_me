@@ -1,17 +1,20 @@
 
+require_relative './recording.rb'
+
 class Meditation
   include Recording::InstanceMethods
   extend Recording::ClassMethods
+
 
   attr_accessor :title, :teacher, :url, :date
   @@all = []
 
   #instance methods
 
-  # def initialize(attributes_hash)#takes in hash of meditation attributes
-  #   attributes_hash.each {|key, value| self.send(("#{key}="), value)}
-  #   @@all << self
-  # end
+  def initialize(attributes_hash)#takes in hash of meditation attributes
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+    @@all << self
+  end
 
   # def play
   #   print Rainbow("Click the link to play: #{@url}").red

@@ -8,4 +8,4 @@ require_relative "../lib/dharma_me/meditation.rb"
 require_relative "../lib/dharma_me/talk.rb"
 require_relative "../lib/dharma_me/breathe.rb"
 require_relative "../lib/dharma_me/cli.rb"
-#require_relative 'concerns/findable.rb'
+require_relative '../lib/dharma_me/recording.rb'

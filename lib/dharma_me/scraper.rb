@@ -37,8 +37,3 @@ class Scraper #should it be class methods or instance methods?
     end
   end
 end
-
-# Scraper.scrape_talks("http://imcw.org/Talks")
-# Scraper.scrape_meditations("http://marc.ucla.edu/mindful-meditations")
-# Scraper.scrape_talk("http://imcw.org/Talks/TalkDetail/TalkID/1136")
-# binding.pry
