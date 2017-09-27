@@ -67,7 +67,6 @@ class CLI
         end
 
     elsif input.to_i == 3
-      #could make this more flexible and abstract by asking user to input amount of time
       Breathe.start
       menu
     end
