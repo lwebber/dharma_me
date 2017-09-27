@@ -1,5 +1,4 @@
-class Scraper #should it be class methods or instance methods?
-#should I hard code urls? Does it matter?
+class Scraper
 
   def self.scrape_talks(index_url)
     doc = Nokogiri::HTML(open(index_url))

@@ -1,12 +1,14 @@
 class CLI
 
-  def call #main method to run the program
+  def call
+    #main method to run the program
     greet
     menu
     goodbye
   end
 
-  def greet #welcome user
+  def greet
+    #welcome user
     puts "\nWelcome to DharmaMe!"
     puts "You must be stressed out. Why don't you take a break?"
   end
