@@ -1,4 +1,8 @@
+require_relative './recording.rb'
+
 class Talk
+  include Recording::InstanceMethods
+  extend Recording::ClassMethods
 
   attr_accessor :date, :title, :url, :teacher, :description
 
@@ -16,16 +20,16 @@ class Talk
     talk_attributes.each {|key, value| self.send(("#{key}="), value)}
   end
 
-  def self.create_from_collection(talk_attributes)
-    #take in an array of talk attributes hashes and build Talk objects
-    talk_attributes.each do |attributes|
-      Talk.new(attributes)
-    end
-  end
+  # def self.create_from_collection(talk_attributes)
+  #   #take in an array of talk attributes hashes and build Talk objects
+  #   talk_attributes.each do |attributes|
+  #     self.new(attributes)
+  #   end
+  # end
 
   def self.add_attributes_to_talks
     #add attributes from a talk's details page to current list of talks
-    Talk.all.each do |talk|
+    self.all.each do |talk|
       attributes = Scraper.scrape_talk_details(talk.url)
       talk.add_attributes(attributes)
     end
@@ -40,11 +44,11 @@ class Talk
     puts ""
   end
 
-  def play
-    #provide link to talk to play
-    print Rainbow("Click the link to play: #{@url}").red
-    puts ""
-  end
+  # def play
+  #   #provide link to talk to play
+  #   print Rainbow("Click the link to play: #{@url}").red
+  #   puts ""
+  # end
 
   def self.all
     #access all talk objects
@@ -56,14 +60,14 @@ class Talk
     self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title} by #{t.teacher}"}
   end
 
-  def self.find(input)
-    #find a talk
-    @@all[input.to_i - 1]
-  end
-
-  def self.reset!
-    #clear the list of talks
-    @@all.clear
-  end
+  # def self.find(input)
+  #   #find a talk
+  #   self.all[input.to_i - 1]
+  # end
+  #
+  # def self.reset!
+  #   #clear the list of talks
+  #   self.all.clear
+  # end
 
 end

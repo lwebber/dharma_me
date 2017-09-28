@@ -4,13 +4,17 @@ class CLI
     #main method to run the program
     greet
     menu
-    goodbye
   end
 
   def greet
     #welcome user
     puts "\nWelcome to DharmaMe!"
     puts "You must be stressed out. Why don't you take a break?"
+  end
+
+  def goodbye
+    puts "Come back tomorrow for updated talks and meditations."
+    puts ""
   end
 
   def menu
@@ -43,6 +47,7 @@ class CLI
           #could potentially scrape and add the details here.
           talk.show_details
           talk.play
+          puts "\nHere's the menu again if you'd like to start over:"
           menu
         end
 
@@ -62,7 +67,7 @@ class CLI
           goodbye
         else
           Meditation.find(choice).play
-          puts "Here's the menu again if you'd like to start over:"
+          puts "\nHere's the menu again if you'd like to start over:"
           menu
         end
 
@@ -70,11 +75,6 @@ class CLI
       Breathe.start
       menu
     end
-  end
-
-  def goodbye
-    puts "Come back tomorrow for updated talks and meditations."
-    puts ""
   end
 end
 end
