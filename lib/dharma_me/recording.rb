@@ -18,12 +18,12 @@ module Recording
     end
 
     def list
-      #list the meditations for the user
+      #list the recordings for the user
       all.each_with_index { |m, index| puts "#{index + 1}. #{m.title}"}
     end
 
     def find(input)
-      #find a meditation by user input
+      #find a recordings by user input
       all[input.to_i - 1]
     end
 
