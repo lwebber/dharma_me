@@ -1,6 +1,7 @@
 module Recording
 
   module InstanceMethods
+
     def play
       print Rainbow("Click the link to play: #{@url}").red
       puts ""
@@ -9,9 +10,9 @@ module Recording
 
   module ClassMethods
 
-    def create_from_collection(meditation_attributes)
-      #takes in array of meditation attributes hashes
-      meditation_attributes.each do |attributes|
+    def create_from_collection(attributes)
+      #takes in array of attributes hashes
+      attributes.each do |attributes|
         self.new(attributes)
       end
     end
