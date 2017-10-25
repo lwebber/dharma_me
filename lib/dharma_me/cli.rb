@@ -30,20 +30,21 @@ class CLI
       Talk.reset!
       #get talks from main page
       Talk.create_from_collection(Scraper.scrape_talks("http://imcw.org/Talks"))
+      binding.pry
       #add more details from details page. Should I only do this to talk user selects? Would save time.
       Talk.add_attributes_to_talks
       Talk.list
 
       input = nil
       puts "\nWhich one would you like to hear? (or q to quit, m for main menu)"
-      choice = gets.strip
+      input = gets.strip
 
-        if choice == "m"
+        if input == "m"
           menu
-        elsif choice == "q"
+        elsif input == "q"
           goodbye
         else
-          talk = Talk.find(choice)
+          talk = Talk.find(input)
           #could potentially scrape and add the details here.
           talk.show_details
           talk.play
@@ -74,6 +75,9 @@ class CLI
     elsif input.to_i == 3
       Breathe.start
       menu
+    elsif input == "q"
+      goodbye
+      exit
     end
   end
 end

@@ -47,4 +47,8 @@ class Talk
     self.all.each_with_index { |t, index| puts "#{index + 1}. #{t.title} by #{t.teacher}"}
   end
 
+  def self.search_titles(keyword)
+    self.all.select { |talk| talk.title.downcase.include?(keyword.downcase) }
+  end
+
 end
